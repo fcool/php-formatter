@@ -25,7 +25,7 @@ options.header =
     '{\n' +
     indents(1) + 'protected function setUp()\n' +
     indents(1) + '{\n' +
-    indents(2) + '${receiver} = new Testing_Selenium("${environment}", "${baseURL}")\n';
+    indents(2) + '${receiver} = new Testing_Selenium("${environment}", "${baseURL}")\n' +
     indents(1) + '}\n' +
     '\n' +
     indents(1) + 'public function testMyTestCase()\n' +

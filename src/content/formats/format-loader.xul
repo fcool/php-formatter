@@ -7,11 +7,13 @@
     <script type="application/x-javascript" src="chrome://selenium-ide/content/api.js"/>
     <script type="application/x-javascript" src="chrome://php-formatters/content/formats/php-phpunit.js"/>
     <script type="application/x-javascript" src="chrome://php-formatters/content/formats/php-testingselenium.js"/>
+    <script type="application/x-javascript" src="chrome://php-formatters/content/formats/php-phpunit-wd.js"/>
+    
     <html:script type="application/javascript">
         var ide_api = new API();
         ide_api.addPlugin("phpformatters@seleniumhq.org");
         ide_api.addPluginProvidedFormatter("phpunitformatter", "PHP (PHPUnit)", "chrome://php-formatters/content/formats/php-phpunit.js");
         ide_api.addPluginProvidedFormatter("phptestingseleniumformatter", "PHP (Testing_Selenium)", "chrome://php-formatters/content/formats/php-testingselenium.js");
-
+        ide_api.addPluginProvidedFormatter("phpwdformatter", "PHPUnit (WebDriver)", "chrome://php-formatters/content/formats/php-phpunit-wd.js", "webdriver");
     </html:script>
 </overlay>

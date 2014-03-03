@@ -1,6 +1,14 @@
 README
 
-This is a fork of Adam Goucher's PHP Formatter for Selenium IDE.
+PHP formatter for Selenium IDE with WebDriver support (aka Selenium 2).
+It's still on development, but it seems to be working fine. I'm writing this
+formatter because I wanted to do headless testing with phantomjs, which does not
+support the old RC version.
+
+If you get a "The command 'keys' is not existent or not supported yet" message,
+replace any call to keys() with value().
+
+This is a fork of a fork of Adam Goucher's PHP Formatter for Selenium IDE.
 Example build scripts via Adam Goucher : http://adam.goucher.ca/?p=1331
 
 --------------------------------------------------

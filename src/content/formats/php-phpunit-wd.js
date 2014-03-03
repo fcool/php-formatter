@@ -25,13 +25,13 @@ function nonBreakingSpace() {
 }
 
 function array(value) {
-    var str = 'array(';
-    for (var i = 0; i < value.length; i++) {
-        str += string(value[i]);
-        if (i < value.length - 1) str += ", ";
-    }
-    str += ')';
-    return str;
+  var str = 'array(';
+  for (var i = 0; i < value.length; i++) {
+    str += string(value[i]);
+    if (i < value.length - 1) str += ", ";
+  }
+  str += ')';
+  return str;
 }
 
 Equals.prototype.toString = function() {
@@ -86,7 +86,7 @@ function verify(statement) {
   return "try {\n" +
         indent(1) + statement + "\n" +
         "} catch (PHPUnit_Framework_AssertionFailedError $e) {\n" +
-        indent(1) + "array_push($this->verificationErrors, $e->toString());\n" +    
+        indent(1) + "array_push($this->verificationErrors, $e->toString());\n" +
         "}";
 }
 
@@ -119,13 +119,13 @@ function waitFor(expression)
 }
 
 function assertOrVerifyFailure(line, isAssert) {
-    var message = '"expected failure"';
-    var failStatement = isAssert ? "$this->fail(" + message  + ");" :
-        "array_push($this->verificationErrors, " + message + ");";
-    return "try { \n" +
-        line + "\n" +
-        failStatement + "\n" +
-        "} catch (PHPUnit_Extensions_Selenium2TestCase_Exception $e) {}\n";
+  var message = '"expected failure"';
+  var failStatement = isAssert ? "$this->fail(" + message  + ");" :
+      "array_push($this->verificationErrors, " + message + ");";
+  return "try { \n" +
+      line + "\n" +
+      failStatement + "\n" +
+      "} catch (PHPUnit_Extensions_Selenium2TestCase_Exception $e) {}\n";
 }
 
 function pause(milliseconds) {
@@ -190,13 +190,13 @@ function formatSuite(testSuite, filename) {
 
   formattedSuite += "\n" + indents(1) + "private function isElementPresent($how,$what)\n"
         + indents(1) + "{\n"
-	    + indents(2) + "try{\n"
-		+ indents(3) + "$this->element($this->using($how)->value($what));\n"
-		+ indents(3) + "return true;\n"
-	    + indents(2) + "} catch (PHPUnit_Extensions_Selenium2TestCase_Exception $e)\n"
-	    + indents(2) + "{\n"
-		+ indents(3) + "return false;\n"
-	    + indents(2) + "}\n"
+        + indents(2) + "try{\n"
+        + indents(3) + "$this->element($this->using($how)->value($what));\n"
+        + indents(3) + "return true;\n"
+        + indents(2) + "} catch (PHPUnit_Extensions_Selenium2TestCase_Exception $e)\n"
+        + indents(2) + "{\n"
+        + indents(3) + "return false;\n"
+        + indents(2) + "}\n"
         + indents(1) + "}\n"
         + indents(0) + "}\n"
         + indents(0) + "?>";
@@ -239,13 +239,13 @@ options.footer =
         indents(1) + "}\n\n" +
         indents(1) + "private function isElementPresent($how,$what)\n" +
         indents(1) + "{\n" +
-	    indents(2) + "try{\n" +
-		indents(3) + "$this->element($this->using($how)->value($what));\n" +
-		indents(3) + "return true;\n" +
-	    indents(2) + "} catch (PHPUnit_Extensions_Selenium2TestCase_Exception $e)\n" +
-	    indents(2) + "{\n" +
-		indents(3) + "return false;\n" +
-	    indents(2) + "}\n" +
+        indents(2) + "try{\n" +
+        indents(3) + "$this->element($this->using($how)->value($what));\n" +
+        indents(3) + "return true;\n" +
+        indents(2) + "} catch (PHPUnit_Extensions_Selenium2TestCase_Exception $e)\n" +
+        indents(2) + "{\n" +
+        indents(3) + "return false;\n" +
+        indents(2) + "}\n" +
         indents(1) + "}\n" +
         indents(0) + "}\n" +
         indents(0) + "?>";
@@ -322,11 +322,7 @@ WDAPI.Driver.prototype.getCurrentUrl = function() {
 };
 
 WDAPI.Driver.prototype.get = function(url) {
-  //if (url.length > 1 && (url.substring(1,8) == "http://" || url.substring(1,9) == "https://")) { // url is quoted
-    return this.ref + "->url(" + url + ")";
-  //} else {
-  //  return this.ref + "->url(baseUrl + " + url + ")";
-  //}
+  return this.ref + "->url(" + url + ")";
 };
 
 WDAPI.Driver.prototype.getTitle = function() {

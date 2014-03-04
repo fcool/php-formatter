@@ -313,9 +313,9 @@ WDAPI.Driver.prototype.findElement = function(locatorType, locator) {
   return new WDAPI.Element( WDAPI.Driver.searchContext(locatorType, locator) );
 };
 
-/* WDAPI.Driver.prototype.findElements = function(locatorType, locator) {
-  return new WDAPI.ElementList(this.ref + ".findElements(" + WDAPI.Driver.searchContext(locatorType, locator) + ")");
-}; */
+WDAPI.Driver.prototype.findElements = function(locatorType, locator) {
+  return new WDAPI.ElementList(this.ref + "->elements($this->using(" + locatorType + ")->value(" + locator + "))");
+};
 
 WDAPI.Driver.prototype.getCurrentUrl = function() {
   return this.ref + "->url()";
@@ -327,6 +327,10 @@ WDAPI.Driver.prototype.get = function(url) {
 
 WDAPI.Driver.prototype.getTitle = function() {
   return this.ref + "->title()";
+};
+
+WDAPI.Driver.prototype.mouseMove = function(how, what) {
+  return this.ref + "->moveto(" + WDAPI.Driver.searchContext(how, what) + ")";
 };
 
 WDAPI.Driver.prototype.getAlert = function() {
@@ -374,6 +378,10 @@ WDAPI.Element.prototype.isDisplayed = function() {
   return this.ref + "->displayed()";
 };
 
+WDAPI.Element.prototype.isEditable = function() {
+  return this.ref + "->enabled()";
+};
+
 WDAPI.Element.prototype.isSelected = function() {
   return this.ref + "->selected()";
 };
@@ -418,11 +426,13 @@ WDAPI.ElementList.prototype.getItem = function(index) {
 };
 
 WDAPI.ElementList.prototype.getSize = function() {
-  return this.ref + ".size()";
+  //return this.ref + ".size()";
+  return "count(" + this.ref + ")";
 };
 
 WDAPI.ElementList.prototype.isEmpty = function() {
-  return this.ref + ".isEmpty()";
+  //return this.ref + ".isEmpty()";
+  return "count(" + this.ref + ") == 0";
 };
 
 WDAPI.Utils = function() {
